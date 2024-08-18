@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -22,7 +23,13 @@ public struct ChaosMatrix
      */
     public float[] ChaosFactors;
 
-    public void UpdateChaosFactors() => ChaosFactors = Multiply(CreateOnesVector());
+    public float ChaosFactorTotal;
+
+    public void UpdateChaosFactors()
+    {
+        ChaosFactors = Multiply(CreateOnesVector());
+        ChaosFactorTotal = ChaosFactors.Sum();
+    }
 
     public float[] CreateZeroVector()
     {

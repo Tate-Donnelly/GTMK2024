@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Attributes : MonoBehaviour
 {
-    public Attributes Instance { get; private set; }
+    public static Attributes Instance { get; private set; }
 
     public ChaosMatrix Likes { get; private set; }
     public ChaosMatrix Flaws { get; private set; }
