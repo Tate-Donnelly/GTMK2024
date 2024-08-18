@@ -1,3 +1,4 @@
+using Core;
 using UnityEngine;
 
 namespace UI
@@ -11,7 +12,7 @@ namespace UI
 
         public void Play()
         {
-            
+            SceneManager.Instance.ChangeScene(SceneManager.Scenes.Game);
         }
         
         /// <summary>
