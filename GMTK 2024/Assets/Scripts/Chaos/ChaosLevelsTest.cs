@@ -31,7 +31,7 @@ public class ChaosLevelsTest : MonoBehaviour
 
     void NextNPC()
     {
-        //npc = npcGenerator.GenerateRandomNPCTraits();
+        npc = npcGenerator.GenerateRandomNPCTraits();
 
         npcText.text = npc.ToString();
     }
