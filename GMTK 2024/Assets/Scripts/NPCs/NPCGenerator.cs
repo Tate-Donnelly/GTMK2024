@@ -19,7 +19,7 @@ public class NPCGenerator : MonoBehaviour
         
     }
 
-    NPCTraits GenerateRandomNPCTraits()
+    public NPCTraits GenerateRandomNPCTraits()
     {
         var npcTraits = new NPCTraits();
 

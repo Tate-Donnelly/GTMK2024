@@ -6,10 +6,10 @@ using UnityEngine;
 public class ChaosEventManager : MonoBehaviour
 {
     public static ChaosEventManager Instance;
-    Queue<string> actionsQueue = new Queue<string>();
+    Queue<(int, string)> actionsQueue = new Queue<(int, string)>();
     private bool ready = false;
 
-    public event Action<string> TriggerChaosEvent;
+    public event Action<(int, string)> TriggerChaosEvent;
 
     const float COOLDOWN = 15f;
     private float timer = 0;
@@ -22,7 +22,7 @@ public class ChaosEventManager : MonoBehaviour
         Instance = this;
     }
 
-    public void EnqueueAction(String eventText)
+    public void EnqueueAction((int, string) eventText)
     {
         actionsQueue.Enqueue(eventText);
     }
@@ -43,7 +43,7 @@ public class ChaosEventManager : MonoBehaviour
 
         if (ready)
         {
-            TriggerChaosEvent(actionsQueue.Dequeue());
+            TriggerChaosEvent?.Invoke(actionsQueue.Dequeue());
             ready = false;
             return;
         }
